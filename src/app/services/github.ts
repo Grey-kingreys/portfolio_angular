@@ -2,7 +2,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, shareReplay, catchError, throwError, forkJoin } from 'rxjs';
-import { environment } from '../../environments/environment';
 
 export interface GitHubRepo {
   id: number;
@@ -34,21 +33,14 @@ export interface GitHubUser {
 })
 export class GithubService {
   private apiUrl = 'https://api.github.com';
-  
-  private token = '';
 
   constructor(private http: HttpClient) {}
 
   private getHeaders(): HttpHeaders {
-    let headers = new HttpHeaders({
+    // Headers pour GitHub API, sans token
+    return new HttpHeaders({
       'Accept': 'application/vnd.github.v3+json'
     });
-    
-    if (this.token) {
-      headers = headers.set('Authorization', `token ${this.token}`);
-    }
-    
-    return headers;
   }
 
   // Récupérer les informations de l'utilisateur (avec cache)
@@ -85,7 +77,7 @@ export class GithubService {
     return this.reposCache.get(username)!;
   }
 
-  // NOUVEAU: Récupérer toutes les données en parallèle
+  // Récupérer toutes les données en parallèle
   getAllUserData(username: string): Observable<{ user: GitHubUser; repos: GitHubRepo[] }> {
     return forkJoin({
       user: this.getUserInfo(username),
@@ -95,7 +87,7 @@ export class GithubService {
     );
   }
 
-  // Récupérer les statistiques des dépôts
+  // Récupérer les statistiques publiques d'un dépôt
   getRepoStats(username: string, repoName: string): Observable<any> {
     return this.http.get(
       `${this.apiUrl}/repos/${username}/${repoName}`,
@@ -111,7 +103,7 @@ export class GithubService {
     );
   }
 
-  // Récupérer les commits récents
+  // Récupérer les derniers commits (uniquement publics)
   getRecentCommits(username: string, repoName: string): Observable<any[]> {
     return this.http.get<any[]>(
       `${this.apiUrl}/repos/${username}/${repoName}/commits?per_page=10`,
