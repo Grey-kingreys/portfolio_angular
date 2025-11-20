@@ -14,13 +14,13 @@ jobs:
       - name: Configurer Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 
       
       - name: Installer les dépendances
         run: npm install
       
       - name: Construire le projet
-        run: ng build
+        run: npm run build
 
   deploy:
     name: Deploy to Vercel
