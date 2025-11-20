@@ -1,0 +1,84 @@
+<div class="card {{ customClass || '' }}" [class]="customClass" [style.border-left-color]="color">
+  <!-- Carte avec icône pour les compétences -->
+  @if (icon && !image) {
+    <div class="card-icon-container" [style.background-color]="color">
+      <span class="card-icon">{{ icon }}</span>
+    </div>
+  }
+
+  <!-- Carte avec image -->
+  @if (image) {
+    <div class="card-image-container">
+      <img [src]="image" [alt]="imageAlt || title" class="card-image">
+      @if (date || technologies?.length) {
+        <div class="card-meta">
+          @if (date) {
+            <span class="card-date">{{ date }}</span>
+          }
+          @if (technologies?.length) {
+            <div class="card-technologies">
+              @for (tech of technologies; track tech) {
+                <span class="tech-badge">{{ tech }}</span>
+              }
+            </div>
+          }
+        </div>
+      }
+    </div>
+  }
+
+  <!-- Contenu de la carte -->
+  <div class="card-body">
+    @if (title) {
+      <h3 class="card-title">
+        @if (icon) {
+          <span class="title-icon">{{ icon }}</span>
+        }
+        {{ title }}
+      </h3>
+    }
+    
+    @if (subtitle) {
+      <h4 class="card-subtitle">{{ subtitle }}</h4>
+    }
+    
+    @if (content) {
+      <div class="card-content">
+        <p>{{ content }}</p>
+      </div>
+    }
+    
+    <!-- Barres de progression pour les compétences -->
+    @if (showProgressBars && skills?.length) {
+      <div class="skills-container">
+        @for (skill of skills; track skill.name) {
+          <div class="skill-item">
+            <div class="d-flex justify-content-between mb-1">
+              <span>{{ skill.name }}</span>
+              <span>{{ skill.level }}%</span>
+            </div>
+            <div class="progress" style="height: 8px;">
+              <div class="progress-bar" 
+                   role="progressbar" 
+                   [style.width.%]="skill.level" 
+                   [style.background-color]="color || '#0d6efd'"
+                   [attr.aria-valuenow]="skill.level" 
+                   aria-valuemin="0" 
+                   aria-valuemax="100">
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    }
+    
+    <!-- Lien optionnel -->
+    @if (link) {
+      <div class="card-footer">
+        <a [href]="link" class="btn btn-outline-primary btn-sm" target="_blank">
+          {{ linkText }}
+        </a>
+      </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,17 @@
+/* Style pour le lien actif */
+.nav-link.active {
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  color: #fff !important;
+}
+
+/* Animation au survol */
+.nav-link {
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+}

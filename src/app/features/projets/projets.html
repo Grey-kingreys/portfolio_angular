@@ -1,1 +1,21 @@
-<p>projets works!</p>
+<section id="projets" class="py-5 py-md-6 bg-light">
+    <div class="container">
+        <h2 class="display-5 fw-bold text-center mb-5">Mes Projets</h2>
+        <div class="row g-4">
+            @for (project of projects; track project.title) {
+                <div class="col-lg-4 col-md-6">
+                    <app-card 
+                        [title]="project.title"
+                        [subtitle]="project.subtitle"
+                        [content]="project.content"
+                        [image]="project.image"
+                        [technologies]="project.technologies"
+                        [link]="project.link"
+                        [linkText]="project.linkText"
+                        customClass="project-card">
+                    </app-card>
+                </div>
+            }
+        </div>
+    </div>
+</section>

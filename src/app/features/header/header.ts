@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Button } from '../../shared/button/button';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, Button],
+  imports: [CommonModule],
   templateUrl: './header.html',
   styleUrls: ['./header.css']
 })

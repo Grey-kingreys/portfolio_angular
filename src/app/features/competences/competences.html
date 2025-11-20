@@ -1,100 +1,65 @@
 <section id="competences" class="py-5 py-md-6 bg-light">
     <div class="container">
         <h2 class="display-5 fw-bold text-center mb-5">Mes Compétences</h2>
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="bg-white p-4 p-lg-5 rounded-3 shadow-sm">
-                    <div class="row g-4">
-                        <div class="col-md-6">
-                            <div class="mb-4">
-                                <h4 class="h5 fw-semibold mb-3">Langages de programmation</h4>
-                                <div class="d-grid gap-3">
-                                    <div>
-                                        <div class="d-flex justify-content-between mb-1">
-                                            <span>Python</span>
-                                            <span>90%</span>
-                                        </div>
-                                        <div class="progress" style="height: 8px;">
-                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="d-flex justify-content-between mb-1">
-                                            <span>Développement Web</span>
-                                            <span>60%</span>
-                                        </div>
-                                        <div class="progress" style="height: 8px;">
-                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="d-flex justify-content-between mb-1">
-                                            <span>Autres langages</span>
-                                            <span>55%</span>
-                                        </div>
-                                        <div class="progress" style="height: 8px;">
-                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="mb-4">
-                                <h4 class="h5 fw-semibold mb-3">Intelligence Artificielle</h4>
-                                <div class="d-grid gap-3">
-                                    <div>
-                                        <div class="d-flex justify-content-between mb-1">
-                                            <span>Machine Learning</span>
-                                            <span>75%</span>
-                                        </div>
-                                        <div class="progress" style="height: 8px;">
-                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="d-flex justify-content-between mb-1">
-                                            <span>Deep Learning</span>
-                                            <span>65%</span>
-                                        </div>
-                                        <div class="progress" style="height: 8px;">
-                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="d-flex justify-content-between mb-1">
-                                            <span>NLP</span>
-                                            <span>85%</span>
-                                        </div>
-                                        <div class="progress" style="height: 8px;">
-                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="d-flex justify-content-between mb-1">
-                                            <span>Vision par Ordinateur</span>
-                                            <span>75%</span>
-                                        </div>
-                                        <div class="progress" style="height: 8px;">
-                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="d-flex justify-content-between mb-1">
-                                            <span>Déploiement de Modèles</span>
-                                            <span>90%</span>
-                                        </div>
-                                        <div class="progress" style="height: 8px;">
-                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+        
+        <!-- Langages de base -->
+        <div class="mb-5">
+            <h3 class="h4 text-center mb-4 fw-semibold">Langages de base</h3>
+            <div class="row g-4">
+                @for (skill of basicLanguages; track skill.name) {
+                    <div class="col-lg-4 col-md-6">
+                        <app-card 
+                            [title]="skill.name"
+                            [content]="skill.description"
+                            [icon]="skill.icon"
+                            [color]="skill.color"
+                            customClass="skill-card"
+                            [showProgressBars]="true"
+                            [skills]="[{name: skill.name, level: skill.level}]">
+                        </app-card>
                     </div>
-                </div>
+                }
+            </div>
+        </div>
+        
+        <!-- Développement Web -->
+        <div class="mb-5">
+            <h3 class="h4 text-center mb-4 fw-semibold">Développement Web & Frameworks</h3>
+            <div class="row g-4">
+                @for (skill of programmingSkills; track skill.name) {
+                    <div class="col-lg-4 col-md-6">
+                        <app-card 
+                            [title]="skill.name"
+                            [content]="skill.description"
+                            [icon]="skill.icon"
+                            [color]="skill.color"
+                            customClass="skill-card"
+                            [showProgressBars]="true"
+                            [skills]="[{name: skill.name, level: skill.level}]">
+                        </app-card>
+                    </div>
+                }
+            </div>
+        </div>
+        
+        <!-- Intelligence Artificielle -->
+        <div class="mb-5">
+            <h3 class="h4 text-center mb-4 fw-semibold">Intelligence Artificielle</h3>
+            <div class="row g-4">
+                @for (skill of aiSkills; track skill.name) {
+                    <div class="col-lg-4 col-md-6">
+                        <app-card 
+                            [title]="skill.name"
+                            [content]="skill.description"
+                            [icon]="skill.icon"
+                            [color]="skill.color"
+                            customClass="skill-card"
+                            [showProgressBars]="true"
+                            [skills]="[{name: skill.name, level: skill.level}]">
+                        </app-card>
+                    </div>
+                }
             </div>
         </div>
     </div>
 </section>
-

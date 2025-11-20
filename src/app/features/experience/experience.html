@@ -1,1 +1,20 @@
-<p>experience works!</p>
+<section id="experience" class="py-5 py-md-6">
+    <div class="container">
+        <h2 class="display-5 fw-bold text-center mb-5">Mon Expérience</h2>
+        <div class="row g-4">
+            @for (exp of experiences; track exp.title) {
+                <div class="col-lg-4 col-md-6">
+                    <app-card 
+                        [title]="exp.title"
+                        [subtitle]="exp.subtitle"
+                        [content]="exp.content"
+                        [date]="exp.date"
+                        [image]="exp.image"
+                        [technologies]="exp.technologies"
+                        customClass="experience-card">
+                    </app-card>
+                </div>
+            }
+        </div>
+    </div>
+</section>

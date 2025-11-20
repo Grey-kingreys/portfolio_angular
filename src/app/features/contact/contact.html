@@ -1,1 +1,134 @@
-<p>contact works!</p>
+<section class="contact-section py-5">
+  <div class="container">
+    <h2 class="text-center mb-5 section-title">Contactez-moi</h2>
+    
+    <div class="row g-4">
+      <!-- Informations de contact -->
+      <div class="col-lg-5">
+        <div class="contact-info-card">
+          <h3 class="info-title mb-4">Informations de contact</h3>
+          
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="info-content">
+              <h4>Email</h4>
+              <p>{{ contactInfo.email }}</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <div class="info-content">
+              <h4>Téléphone</h4>
+              <p>{{ contactInfo.phone }}</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="info-content">
+              <h4>Localisation</h4>
+              <p>{{ contactInfo.location }}</p>
+            </div>
+          </div>
+
+          <div class="social-section mt-4">
+            <h3 class="info-title mb-3">Réseaux sociaux</h3>
+            <div class="social-links">
+              <a *ngFor="let social of socialLinks" 
+                 [href]="social.url" 
+                 target="_blank" 
+                 rel="noopener noreferrer"
+                 class="social-link"
+                 [attr.aria-label]="social.name">
+                <i [class]="social.icon"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Formulaire de contact -->
+      <div class="col-lg-7">
+        <div class="contact-form-card">
+          <!-- Messages de succès/erreur -->
+          <div *ngIf="submitSuccess" class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="fas fa-check-circle me-2"></i>
+            Votre message a été envoyé avec succès ! Je vous répondrai bientôt.
+          </div>
+
+          <div *ngIf="submitError" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="fas fa-exclamation-circle me-2"></i>
+            Une erreur s'est produite. Veuillez réessayer plus tard.
+          </div>
+
+          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+            <div class="mb-4">
+              <label for="name" class="form-label">Nom complet <span class="text-danger">*</span></label>
+              <input 
+                type="text" 
+                class="form-control" 
+                [class.is-invalid]="name?.invalid && name?.touched"
+                id="name" 
+                formControlName="name"
+                placeholder="Votre nom">
+              <div *ngIf="name?.invalid && name?.touched" class="invalid-feedback">
+                <span *ngIf="name?.errors?.['required']">Le nom est requis</span>
+                <span *ngIf="name?.errors?.['minlength']">Le nom doit contenir au moins 3 caractères</span>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+              <input 
+                type="email" 
+                class="form-control"
+                [class.is-invalid]="email?.invalid && email?.touched"
+                id="email" 
+                formControlName="email"
+                placeholder="votre@email.com">
+              <div *ngIf="email?.invalid && email?.touched" class="invalid-feedback">
+                <span *ngIf="email?.errors?.['required']">L'email est requis</span>
+                <span *ngIf="email?.errors?.['email']">Veuillez entrer un email valide</span>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <label for="message" class="form-label">Message <span class="text-danger">*</span></label>
+              <textarea 
+                class="form-control"
+                [class.is-invalid]="message?.invalid && message?.touched"
+                id="message" 
+                formControlName="message"
+                rows="5"
+                placeholder="Votre message..."></textarea>
+              <div *ngIf="message?.invalid && message?.touched" class="invalid-feedback">
+                <span *ngIf="message?.errors?.['required']">Le message est requis</span>
+                <span *ngIf="message?.errors?.['minlength']">Le message doit contenir au moins 10 caractères</span>
+              </div>
+            </div>
+
+            <button 
+              type="submit" 
+              class="btn btn-primary w-100 submit-btn"
+              [disabled]="isSubmitting">
+              <span *ngIf="!isSubmitting">
+                <i class="fas fa-paper-plane me-2"></i>Envoyer le message
+              </span>
+              <span *ngIf="isSubmitting">
+                <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                Envoi en cours...
+              </span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
