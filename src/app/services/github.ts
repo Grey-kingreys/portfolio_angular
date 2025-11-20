@@ -35,7 +35,7 @@ export interface GitHubUser {
 export class GithubService {
   private apiUrl = 'https://api.github.com';
   
-  private token = environment.token;
+  private token = '';
 
   constructor(private http: HttpClient) {}
 
