@@ -6,7 +6,7 @@
     [attr.aria-disabled]="disabled ? 'true' : null"
     [class.disabled]="disabled"
   >
-    <ng-content></ng-content>
+    {{name}}
   </a>
 } @else {
   <button
@@ -14,6 +14,6 @@
     [class]="buttonClasses"
     [disabled]="disabled"
   >
-    <ng-content></ng-content>
+    {{name}}
   </button>
 }

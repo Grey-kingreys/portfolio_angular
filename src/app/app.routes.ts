@@ -5,9 +5,7 @@ import { Experience } from './features/experience/experience';
 import { Projets } from './features/projets/projets';
 import { Contact } from './features/contact/contact';
 import { TableauDeBord } from './features/tableau-de-bord/tableau-de-bord';
-
 import { Header } from './features/header/header';
-import { App } from './app';
 
 export const routes: Routes = [
     {

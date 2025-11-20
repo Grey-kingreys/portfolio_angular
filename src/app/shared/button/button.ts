@@ -13,6 +13,7 @@ type ButtonTheme = 'primary' | 'secondary' | 'light';
 })
 export class Button {
   @Input() href?: string;
+  @Input() name?: string;
   @Input() theme: ButtonTheme = 'primary';
   @Input() class: string = '';
   @Input() type: 'button' | 'submit' | 'reset' = 'button';
