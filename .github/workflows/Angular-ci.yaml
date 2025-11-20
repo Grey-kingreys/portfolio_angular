@@ -20,7 +20,7 @@ jobs:
         run: npm install
       
       - name: Construire le projet
-        run: npm run build
+        run: ng build
 
   deploy:
     name: Deploy to Vercel
