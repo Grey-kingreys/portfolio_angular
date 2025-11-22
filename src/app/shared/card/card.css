@@ -7,11 +7,14 @@
   overflow: hidden;
   height: 100%;
   border-left: 4px solid transparent;
+  position: relative;
+  z-index: 0;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px) !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+  z-index: 1;
 }
 
 /* Container d'icône pour les compétences */
@@ -44,7 +47,7 @@
 }
 
 .card:hover .card-image {
-  transform: scale(1.05);
+  transform: scale(1.05) !important;
 }
 
 /* Meta informations (date, technologies) */
@@ -210,6 +213,50 @@
 
 .project-card .card-content p {
   font-size: 0.9rem;
+}
+
+/* Styles généraux pour les boutons */
+.btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+.btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Styles pour les liens sociaux */
+.social-link {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6c757d;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.social-link:hover {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
 }
 
 /* Responsive */

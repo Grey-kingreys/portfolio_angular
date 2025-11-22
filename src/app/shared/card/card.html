@@ -73,11 +73,18 @@
     }
     
     <!-- Lien optionnel -->
-    @if (link) {
-      <div class="card-footer">
-        <a [href]="link" class="btn btn-outline-primary btn-sm" target="_blank">
-          {{ linkText }}
-        </a>
+    @if (linkProjet || linkCode) {
+      <div class="card-footer d-flex justify-content-between">
+        @if (linkProjet) {
+          <a [href]="linkProjet" class="btn btn-outline-primary btn-sm me-2" target="_blank">
+            {{ linkTextProjet }}
+          </a>
+        }
+        @if (linkCode) {
+          <a [href]="linkCode" class="btn btn-outline-primary btn-sm" target="_blank">
+            {{ linkTextCode }}
+          </a>
+        }
       </div>
     }
   </div>

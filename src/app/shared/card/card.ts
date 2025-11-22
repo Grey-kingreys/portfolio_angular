@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -19,8 +19,10 @@ export class Card {
   @Input() imageAlt?: string;
   @Input() date?: string;
   @Input() technologies?: string[];
-  @Input() link?: string;
-  @Input() linkText?: string = 'Voir plus';
+  @Input() linkProjet?: string;
+  @Input() linkCode?: string;
+  @Input() linkTextProjet?: string;
+  @Input() linkTextCode?: string;
   @Input() icon?: string;
   @Input() color?: string;
 }
