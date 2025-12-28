@@ -7,8 +7,12 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterLink, RouterLinkActive],
   templateUrl: './navbar.html',
-  styleUrl: './navbar.css',
+  styleUrls: ['./navbar.css'],
 })
 export class Navbar {
+  isOpen = false;
 
+  toggleMenu(): void {
+    this.isOpen = !this.isOpen;
+  }
 }

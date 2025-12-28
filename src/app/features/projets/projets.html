@@ -1,9 +1,9 @@
-<section id="projets" class="py-5 py-md-6 bg-light">
-    <div class="container">
-        <h2 class="display-5 fw-bold text-center mb-5">Mes Projets</h2>
-        <div class="row g-4">
+<section id="projets" class="py-12 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-10 text-gray-900">Mes Projets</h2>
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             @for (project of projects; track project.title) {
-                <div class="col-lg-4 col-md-6">
+                <div>
                     <app-card 
                         [title]="project.title"
                         [subtitle]="project.subtitle"

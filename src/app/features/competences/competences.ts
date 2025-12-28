@@ -15,49 +15,49 @@ export class Competences {
       name: 'Python',
       level: 90,
       description: 'Langage de programmation polyvalent, idéal pour le développement web, l\'analyse de données, l\'IA et l\'automatisation.',
-      icon: '🐍',
+      icon: 'basic',
       color: '#3776ab'
     },
     {
       name: 'JavaScript',
       level: 85,
       description: 'Langage de programmation essentiel pour le développement web, permet de créer des pages interactives et dynamiques.',
-      icon: '📜',
+      icon: 'basic',
       color: '#f7df1e'
     },
     {
       name: 'Java',
       level: 75,
       description: 'Langage de programmation orienté objet, largement utilisé pour les applications d\'entreprise et Android.',
-      icon: '☕',
+      icon: 'basic',
       color: '#007396'
     },
     {
       name: 'HTML',
       level: 95,
       description: 'Langage de balisage standard pour créer des pages web, structure de base du web.',
-      icon: '🌐',
+      icon: 'basic',
       color: '#e34c26'
     },
     {
       name: 'CSS',
       level: 90,
       description: 'Langage de style pour designer et mettre en page les pages web, essentiel pour l\'apparence.',
-      icon: '🎨',
+      icon: 'basic',
       color: '#1572b6'
     },
     {
       name: 'C',
       level: 70,
       description: 'Langage de programmation système, base de nombreux autres langages et proche du matériel.',
-      icon: '⚙️',
+      icon: 'basic',
       color: '#a8b9cc'
     },
     {
       name: 'C++',
       level: 65,
       description: 'Extension de C avec programmation orientée objet, utilisé pour les applications hautes performances.',
-      icon: '🔧',
+      icon: 'basic',
       color: '#00599c'
     }
   ];
@@ -67,36 +67,43 @@ export class Competences {
       name: 'NestJS',
       level: 85,
       description: 'Framework Node.js progressif pour construire des applications serveur efficaces et évolutives.',
-      icon: '🏗️',
+      icon: 'web',
       color: '#e0234e'
     },
     {
       name: 'Node.js + Express',
       level: 80,
       description: 'Environnement JavaScript côté serveur avec Express pour créer des APIs RESTful robustes.',
-      icon: '🟢',
+      icon: 'web',
       color: '#339933'
     },
     {
       name: 'React.js',
       level: 75,
       description: 'Bibliothèque JavaScript pour construire des interfaces utilisateur interactives et performantes.',
-      icon: '⚛️',
+      icon: 'web',
       color: '#61dafb'
     },
     {
       name: 'Angular',
       level: 70,
       description: 'Framework complet pour les applications web monopages avec TypeScript et architecture MVC.',
-      icon: '🅰️',
+      icon: 'web',
       color: '#dd0031'
     },
     {
       name: 'Django',
       level: 65,
       description: 'Framework Python haut niveau pour le développement web rapide et sécurisé.',
-      icon: '🎸',
+      icon: 'web',
       color: '#092e20'
+    },
+    {
+      name: 'Flutter',
+      level: 60,
+      description: 'Framework UI toolkit pour créer des applications mobiles, web et desktop avec un seul codebase et une seule base de code partagée entre toutes les plateformes (Android, iOS, Web, Desktop).',
+      icon: 'mobile',
+      color: '#02569b'
     }
   ];
 
@@ -105,35 +112,35 @@ export class Competences {
       name: 'Machine Learning',
       level: 75,
       description: 'Algorithmes et techniques pour créer des systèmes qui apprennent à partir des données.',
-      icon: '🤖',
+      icon: 'ai',
       color: '#ff6b6b'
     },
     {
       name: 'Deep Learning',
       level: 65,
       description: 'Réseaux de neurones profonds pour l\'apprentissage automatique avancé.',
-      icon: '🧠',
+      icon: 'ai',
       color: '#4ecdc4'
     },
     {
       name: 'NLP',
       level: 85,
       description: 'Traitement du langage naturel pour comprendre et générer le texte humain.',
-      icon: '💬',
+      icon: 'ai',
       color: '#45b7d1'
     },
     {
       name: 'Vision par Ordinateur',
       level: 75,
       description: 'Analyse et interprétation d\'images et vidéos par l\'intelligence artificielle.',
-      icon: '👁️',
+      icon: 'ai',
       color: '#96ceb4'
     },
     {
       name: 'Déploiement de Modèles',
       level: 90,
       description: 'Mise en production et optimisation des modèles IA pour des applications réelles.',
-      icon: '🚀',
+      icon: 'ai',
       color: '#dda0dd'
     }
   ];

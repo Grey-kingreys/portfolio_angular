@@ -2,7 +2,27 @@
   <!-- Carte avec icône pour les compétences -->
   @if (icon && !image) {
     <div class="card-icon-container" [style.background-color]="color">
-      <span class="card-icon">{{ icon }}</span>
+      <!-- Icônes de compétences basées sur le type -->
+      @if (icon === 'basic') {
+        <!-- Code / langage de base -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-6 w-6 text-white" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 8.75 4.75 12l3.5 3.25M15.75 8.75 19.25 12l-3.5 3.25M10.5 19.25 13.5 4.75" />
+        </svg>
+      } @else if (icon === 'web') {
+        <!-- Web / frameworks -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-6 w-6 text-white" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 5.75A2.75 2.75 0 0 1 6.5 3h11a2.75 2.75 0 0 1 2.75 2.75v12.5A2.75 2.75 0 0 1 17.5 21H6.5A2.75 2.75 0 0 1 3.75 18.25z" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9.25h16.5" />
+        </svg>
+      } @else if (icon === 'ai') {
+        <!-- IA / cerveau -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-6 w-6 text-white" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9.5 4.75A3.25 3.25 0 0 0 6.25 8v8.25A2.75 2.75 0 0 0 9 19h.5A2.5 2.5 0 0 0 12 16.5v-9a2.75 2.75 0 0 0-2.5-2.75zM14.5 4.75A3.25 3.25 0 0 1 17.75 8v8.25A2.75 2.75 0 0 1 15 19h-.5A2.5 2.5 0 0 1 12 16.5v-9a2.75 2.75 0 0 1 2.5-2.75z" />
+        </svg>
+      } @else {
+        <!-- Fallback: simple rond -->
+        <span class="card-icon"></span>
+      }
     </div>
   }
 
@@ -53,7 +73,7 @@
       <div class="skills-container">
         @for (skill of skills; track skill.name) {
           <div class="skill-item">
-            <div class="d-flex justify-content-between mb-1">
+            <div class="flex items-center justify-between mb-1 text-sm">
               <span>{{ skill.name }}</span>
               <span>{{ skill.level }}%</span>
             </div>
@@ -74,14 +94,14 @@
     
     <!-- Lien optionnel -->
     @if (linkProjet || linkCode) {
-      <div class="card-footer d-flex justify-content-between">
+      <div class="card-footer flex items-center justify-between gap-3">
         @if (linkProjet) {
-          <a [href]="linkProjet" class="btn btn-outline-primary btn-sm me-2" target="_blank">
+          <a [href]="linkProjet" class="inline-flex items-center rounded-lg border border-indigo-500 px-3 py-1.5 text-sm font-medium text-indigo-600 hover:bg-indigo-50 transition-colors transform hover:-translate-y-0.5 hover:shadow-md duration-200" target="_blank">
             {{ linkTextProjet }}
           </a>
         }
         @if (linkCode) {
-          <a [href]="linkCode" class="btn btn-outline-primary btn-sm" target="_blank">
+          <a [href]="linkCode" class="inline-flex items-center rounded-lg border border-indigo-500 px-3 py-1.5 text-sm font-medium text-indigo-600 hover:bg-indigo-50 transition-colors transform hover:-translate-y-0.5 hover:shadow-md duration-200" target="_blank">
             {{ linkTextCode }}
           </a>
         }

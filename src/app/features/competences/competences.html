@@ -1,13 +1,13 @@
-<section id="competences" class="py-5 py-md-6 bg-light">
-    <div class="container">
-        <h2 class="display-5 fw-bold text-center mb-5">Mes Compétences</h2>
+<section id="competences" class="py-12 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-10 text-gray-900">Mes Compétences</h2>
         
         <!-- Langages de base -->
-        <div class="mb-5">
-            <h3 class="h4 text-center mb-4 fw-semibold">Langages de base</h3>
-            <div class="row g-4">
+        <div class="mb-10">
+            <h3 class="text-xl font-semibold text-center mb-6 text-gray-800">Langages de base</h3>
+            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                 @for (skill of basicLanguages; track skill.name) {
-                    <div class="col-lg-4 col-md-6">
+                    <div>
                         <app-card 
                             [title]="skill.name"
                             [content]="skill.description"
@@ -21,13 +21,14 @@
                 }
             </div>
         </div>
+
         
         <!-- Développement Web -->
-        <div class="mb-5">
-            <h3 class="h4 text-center mb-4 fw-semibold">Développement Web & Frameworks</h3>
-            <div class="row g-4">
+        <div class="mb-10">
+            <h3 class="text-xl font-semibold text-center mb-6 text-gray-800">Développement Web & Frameworks</h3>
+            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                 @for (skill of programmingSkills; track skill.name) {
-                    <div class="col-lg-4 col-md-6">
+                    <div>
                         <app-card 
                             [title]="skill.name"
                             [content]="skill.description"
@@ -43,11 +44,11 @@
         </div>
         
         <!-- Intelligence Artificielle -->
-        <div class="mb-5">
-            <h3 class="h4 text-center mb-4 fw-semibold">Intelligence Artificielle</h3>
-            <div class="row g-4">
+        <div class="mb-4">
+            <h3 class="text-xl font-semibold text-center mb-6 text-gray-800">Intelligence Artificielle</h3>
+            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                 @for (skill of aiSkills; track skill.name) {
-                    <div class="col-lg-4 col-md-6">
+                    <div>
                         <app-card 
                             [title]="skill.name"
                             [content]="skill.description"
