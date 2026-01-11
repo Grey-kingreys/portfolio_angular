@@ -99,6 +99,17 @@ export class Projets {
       linkTextProjet: 'voir le projet',
       linkTextCodes: 'voir le code',
       image: 'images/audio to texte.png'
+    },
+    {
+      title: 'Front: Gestionnaire des contacts',
+      subtitle: "Projet Personnel",
+      content: "Une application frontale avec Reactjs pour gérer vos contacts de manière efficace et intuitive. Vous pouvez discuter avec vos contacts ayant un compte.",
+      technologies: ['Reactjs', 'TypeScript', 'Tailwind CSS'],
+      linKCode: 'https://github.com/Grey-kingreys/Front-carnet-nest',
+      linkProjet: 'https://front-carnet-nest.vercel.app/',
+      linkTextProjet: 'voir le projet',
+      linkTextCodes: 'voir le code',
+      image: 'images/front_g_c.png'
     }
   ];
 }
