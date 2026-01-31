@@ -14,7 +14,22 @@
   cursor: pointer;
   line-height: 1.5;
   user-select: none;
-  color: inherit; /* Hérite la couleur du texte du parent */
+  color: inherit;
+  /* Hérite la couleur du texte du parent */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* Ombre légère par défaut */
+}
+
+/* Hover effect global */
+.btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Focus effect */
+.btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.4);
 }
 
 /* Style pour les liens */
@@ -45,7 +60,6 @@
 
 .btn-primary:focus {
   box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.5);
-  outline: none;
 }
 
 /* Thème light */
@@ -61,8 +75,7 @@
 }
 
 .btn-light:focus {
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5);
-  outline: none;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.25);
 }
 
 /* Thème secondaire */
@@ -79,7 +92,6 @@
 
 .btn-secondary:focus {
   box-shadow: 0 0 0 3px rgba(209, 213, 219, 0.5);
-  outline: none;
 }
 
 /* État désactivé */
@@ -89,6 +101,7 @@
   opacity: 0.6;
   cursor: not-allowed;
   pointer-events: none;
+  box-shadow: none;
 }
 
 /* Taille du bouton */

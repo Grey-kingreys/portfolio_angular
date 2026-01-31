@@ -1,17 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Card } from '../../shared/card/card';
-import { title } from 'node:process';
 
 @Component({
   selector: 'app-projets',
   standalone: true,
   imports: [CommonModule, Card],
   templateUrl: './projets.html',
-  styleUrl: './projets.css',
+  styleUrls: ['./projets.css'],
 })
-export class Projets {
-  projects = [
+export class Projets implements AfterViewInit {
+  // Projets d'Intelligence Artificielle
+  aiProjects = [
+    {
+      title: 'Prédiction état voiture',
+      subtitle: 'Projet Académique',
+      content: "Une intelligence artificielle qui à partir des informations d'une voiture (marque, année, transmission, prix et quartier), prédit si la voiture est d'occasion ou neuve.",
+      technologies: ['Machine Learning', 'Python'],
+      linkProjet: 'https://huggingface.co/spaces/greykingreys/etat_prediction_voiture',
+      linKCode: 'https://github.com/Grey-kingreys/prediction_voiture',
+      linkTextProjet: 'Voir le projet',
+      linkTextCodes: 'Voir le code',
+      image: 'images/etat_pred_voiture.png'
+    },
     {
       title: 'prediction etat voiture',
       subtitle: 'Projet Académique',
@@ -67,6 +78,20 @@ export class Projets {
       linkTextCodes: 'Voir le code',
       image: 'images/Image_Detections.png'
     },
+  ];
+
+  webProjects = [
+    {
+      title: 'Traduction',
+      subtitle: 'Projet Personnel',
+      content: "Une application Python qui permet de traduire 5 langues (anglais, arabe, japonais, allemand, espagnol) en français avec une interface utilisateur conviviale.",
+      technologies: ['Python', 'Gradio', 'Deep-Translator'],
+      linkProjet: 'https://huggingface.co/spaces/greykingreys/Traduction',
+      linKCode: 'https://github.com/Grey-kingreys/Traductions',
+      linkTextProjet: 'Voir le projet',
+      linkTextCodes: 'Voir le code',
+      image: 'images/traduction.png'
+    },
     {
       title: 'API RESTful',
       subtitle: 'Projet Backend',
@@ -112,4 +137,24 @@ export class Projets {
       image: 'images/front_g_c.png'
     }
   ];
+
+  ngAfterViewInit() {
+    this.checkScroll();
+  }
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    this.checkScroll();
+  }
+
+  checkScroll() {
+    const elements = document.querySelectorAll('.animate-on-scroll');
+    elements.forEach(element => {
+      const position = element.getBoundingClientRect();
+      // Si l'élément est visible dans la fenêtre
+      if (position.top < window.innerHeight - 100) {
+        element.classList.add('visible');
+      }
+    });
+  }
 }

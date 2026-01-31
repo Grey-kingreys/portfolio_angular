@@ -67,3 +67,110 @@
   transform: translateY(-3px);
   box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
 }
+
+/* EXPERIENCE TIMELINE STYLES */
+.experience-timeline {
+  position: relative;
+  padding: 40px 0;
+}
+
+.experience-timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, #667eea 0%, #764ba2 50%, #667eea 100%);
+  border-radius: 2px;
+}
+
+.experience-milestone {
+  display: flex;
+  margin-bottom: 40px;
+  position: relative;
+  align-items: center;
+}
+
+.experience-milestone:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+/* Container pour la carte */
+.experience-card-container {
+  width: 45%;
+  transition: all 0.3s ease;
+}
+
+.experience-card-container:hover {
+  transform: scale(1.02);
+}
+
+.experience-icon {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8em;
+  z-index: 10;
+  border: 4px solid #fff;
+  transition: all 0.3s ease;
+  color: white;
+  box-shadow: 0 4px 10px rgba(102, 126, 234, 0.3);
+}
+
+.experience-milestone:hover .experience-icon {
+  transform: translateX(-50%) scale(1.2) rotate(360deg);
+}
+
+.experience-category {
+  text-align: center;
+  font-size: 1.6em;
+  margin: 0 0 30px 0;
+  color: #667eea;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.experience-category::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  border-radius: 2px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .experience-timeline::before {
+    left: 30px;
+  }
+
+  .experience-milestone {
+    flex-direction: column !important;
+    align-items: flex-start;
+    padding-left: 70px;
+  }
+
+  .experience-card-container {
+    width: 100%;
+  }
+
+  .experience-icon {
+    left: 30px;
+  }
+
+  h2.display-5 {
+    font-size: 2em;
+  }
+}

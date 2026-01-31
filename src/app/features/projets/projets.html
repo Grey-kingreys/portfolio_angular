@@ -1,23 +1,55 @@
-<section id="projets" class="py-12 bg-gray-50">
-    <div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-3xl md:text-4xl font-bold text-center mb-10 text-gray-900">Mes Projets</h2>
-        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            @for (project of projects; track project.title) {
-                <div>
-                    <app-card 
-                        [title]="project.title"
-                        [subtitle]="project.subtitle"
-                        [content]="project.content"
-                        [image]="project.image"
-                        [technologies]="project.technologies"
-                        [linkProjet]="project.linkProjet"
-                        [linkTextProjet]="project.linkTextProjet"
-                        [linkCode]="project.linKCode"
-                        [linkTextCode]="project.linkTextCodes"
-                        customClass="project-card">
-                    </app-card>
-                </div>
-            }
+<section id="projets" class="py-12 bg-gradient-to-r from-blue-50 via-blue-100 to-white bg-gray-50">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-10 text-gray-900">Mes Projets</h2>
+    
+    <div class="projets-timeline">
+      <h3 class="projets-category">🤖 Intelligence Artificielle</h3>
+      
+      <ng-container *ngFor="let project of aiProjects; let i = index">
+        <div class="projet-milestone animate-on-scroll" [attr.data-index]="i">
+          <div class="projet-card-container">
+            <app-card 
+              [title]="project.title"
+              [subtitle]="project.subtitle"
+              [content]="project.content"
+              [image]="project.image"
+              [technologies]="project.technologies"
+              [linkProjet]="project.linkProjet"
+              [linkTextProjet]="project.linkTextProjet"
+              [linkCode]="project.linKCode"
+              [linkTextCode]="project.linkTextCodes"
+              customClass="project-card">
+            </app-card>
+          </div>
+          <div class="projet-icon">
+            <i class="fas fa-robot"></i>
+          </div>
         </div>
+      </ng-container>
+      
+      <h3 class="projets-category">🌐 Développement Web</h3>
+      
+      <ng-container *ngFor="let project of webProjects; let i = index">
+        <div class="projet-milestone animate-on-scroll" [attr.data-index]="i">
+          <div class="projet-card-container">
+            <app-card 
+              [title]="project.title"
+              [subtitle]="project.subtitle"
+              [content]="project.content"
+              [image]="project.image"
+              [technologies]="project.technologies"
+              [linkProjet]="project.linkProjet"
+              [linkTextProjet]="project.linkTextProjet"
+              [linkCode]="project.linKCode"
+              [linkTextCode]="project.linkTextCodes"
+              customClass="project-card">
+            </app-card>
+          </div>
+          <div class="projet-icon">
+            <i class="fas fa-laptop-code"></i>
+          </div>
+        </div>
+      </ng-container>
     </div>
+  </div>
 </section>

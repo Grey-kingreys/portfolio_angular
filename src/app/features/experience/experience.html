@@ -1,20 +1,32 @@
-<section id="experience" class="py-5 py-md-6">
+<section id="experience" class="py-5 bg-gradient-to-r from-blue-50 via-blue-100 to-white py-md-6">
     <div class="container">
         <h2 class="display-5 fw-bold text-center mb-5">Mon Expérience</h2>
-        @if (experiences.length > 0) {
-            <!-- <div class="row g-4">
-                @for (exp of experiences; track exp.title) {
-                <div class="col-lg-4 col-md-6">
-                    <app-card [title]="exp.title" [subtitle]="exp.subtitle" [content]="exp.content" [date]="exp.date"
-                        [image]="exp.image" [technologies]="exp.technologies" customClass="experience-card">
-                    </app-card>
-                </div>
-                }
-            </div> -->
-        }
-        @else {
-            <p class="text-center text-muted">Les expériences seront bientôt disponibles sur cette page. Restez à l'écoute !</p>
-        }
         
+        <div *ngIf="experiences.length > 0; else noExperience" class="experience-timeline">
+            <h3 class="experience-category">💼 Expérience Professionnelle</h3>
+            
+            <ng-container *ngFor="let exp of experiences; let i = index">
+                <div class="experience-milestone animate-on-scroll" [attr.data-index]="i">
+                    <div class="experience-card-container">
+                        <app-card 
+                            [title]="exp.title" 
+                            [subtitle]="exp.subtitle" 
+                            [content]="exp.content" 
+                            [date]="exp.date"
+                            [image]="exp.image" 
+                            [technologies]="exp.technologies" 
+                            customClass="experience-card">
+                        </app-card>
+                    </div>
+                    <div class="experience-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+        
+        <ng-template #noExperience>
+            <p class="text-center text-muted">Les expériences seront bientôt disponibles sur cette page. Restez à l'écoute !</p>
+        </ng-template>
     </div>
 </section>

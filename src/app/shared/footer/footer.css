@@ -1,11 +1,12 @@
 .footer-section {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-  color: #e0e0e0;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #ffffff;
   padding: 3rem 0 2rem;
   margin-top: auto;
   box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.3);
   position: relative;
   overflow: hidden;
+  animation: fadeInUp 0.8s ease-out;
 }
 
 .footer-section::before {
@@ -15,25 +16,33 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  background: linear-gradient(90deg, #667eea, #764ba2);
 }
 
+/* Texte */
 .copyright-text {
   font-size: 1rem;
-  color: #b8b8b8;
+  color: rgba(255, 255, 255, 0.9);
   font-weight: 400;
   letter-spacing: 0.5px;
 }
 
 .copyright-text .highlight {
-  color: #fff;
   font-weight: 600;
-  background: linear-gradient(90deg, #667eea, #764ba2);
+  background: linear-gradient(90deg, #ffffff, #e0e0ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
+.footer-tagline {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 300;
+  letter-spacing: 0.5px;
+}
+
+/* Réseaux sociaux */
 .social-links-container {
   display: flex;
   justify-content: center;
@@ -50,13 +59,13 @@
   width: 45px;
   height: 45px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 2px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(6px);
+  border: 2px solid rgba(255, 255, 255, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #b8b8b8;
+  color: #ffffff;
   font-size: 1.1rem;
   text-decoration: none;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -67,84 +76,66 @@
 .social-link::before {
   content: '';
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
+  inset: 0;
   border-radius: 50%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  transform: translate(-50%, -50%);
-  transition: width 0.4s ease, height 0.4s ease;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  opacity: 0;
+  transition: opacity 0.4s ease;
   z-index: -1;
 }
 
 .social-link:hover {
-  color: #fff;
-  border-color: rgba(255, 255, 255, 0.3);
   transform: translateY(-5px) scale(1.05);
   box-shadow: 0 8px 20px rgba(102, 126, 234, 0.5);
 }
 
 .social-link:hover::before {
-  width: 100%;
-  height: 100%;
+  opacity: 1;
 }
 
 .social-link:active {
   transform: translateY(-3px) scale(0.98);
 }
 
+/* Divider */
 .footer-divider {
   height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.1) 20%,
-    rgba(255, 255, 255, 0.2) 50%,
-    rgba(255, 255, 255, 0.1) 80%,
-    transparent 100%
-  );
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.25),
+      transparent);
   margin-top: 2rem;
 }
 
-.footer-tagline {
-  font-size: 0.9rem;
-  color: #8a8a8a;
-  font-weight: 300;
-  letter-spacing: 0.5px;
-}
-
-.footer-tagline i {
-  animation: heartbeat 1.5s ease-in-out infinite;
-  display: inline-block;
-}
-
+/* Animations */
 @keyframes heartbeat {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(1);
   }
-  10%, 30% {
+
+  10%,
+  30% {
     transform: scale(1.1);
   }
-  20%, 40% {
+
+  20%,
+  40% {
     transform: scale(1);
   }
 }
 
-/* Animation d'apparition */
 @keyframes fadeInUp {
   from {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.footer-section {
-  animation: fadeInUp 0.8s ease-out;
 }
 
 /* Responsive */
@@ -167,7 +158,3 @@
     margin-top: 1.5rem;
   }
 }
-
-/* Les styles globaux de cartes/boutons/liens sociaux sont centralisés
-   dans les composants partagés et Tailwind. On les retire ici pour
-   éviter les conflits et garder ce fichier focalisé sur le footer. */

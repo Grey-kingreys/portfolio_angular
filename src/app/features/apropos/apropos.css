@@ -3,22 +3,38 @@
     max-width: 280px;
     width: 100%;
     height: auto;
-    border: 5px solid #f8f9fa;
     transition: transform 0.3s ease;
 }
 
 .about-image:hover {
-    transform: scale(1.03);
+    transform: scale(1.05);
 }
 
 /* Animation pour le texte */
-.fade-in {
-    animation: fadeIn 1s ease-in;
+.fade-in-section {
+    animation: fadeInUp 1s ease-in forwards;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease-in forwards;
+}
+
+.fade-in.delay-200 {
+    animation-delay: 0.2s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Responsive design */
@@ -27,13 +43,13 @@
         max-width: 220px;
         margin-bottom: 2rem;
     }
-    
-    .col-md-1 {
-        display: none !important;
+
+    .fade-in-section {
+        text-align: center;
     }
 }
 
-/* Effet de survol sur la ligne de séparation */
+/* Ligne de séparation / effet hover */
 .vr {
     transition: all 0.3s ease;
     opacity: 0.7;

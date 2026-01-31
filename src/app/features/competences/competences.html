@@ -1,66 +1,70 @@
-<section id="competences" class="py-12 bg-gray-50">
-    <div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-3xl md:text-4xl font-bold text-center mb-10 text-gray-900">Mes Compétences</h2>
-        
-        <!-- Langages de base -->
-        <div class="mb-10">
-            <h3 class="text-xl font-semibold text-center mb-6 text-gray-800">Langages de base</h3>
-            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                @for (skill of basicLanguages; track skill.name) {
-                    <div>
-                        <app-card 
-                            [title]="skill.name"
-                            [content]="skill.description"
-                            [icon]="skill.icon"
-                            [color]="skill.color"
-                            customClass="skill-card"
-                            [showProgressBars]="true"
-                            [skills]="[{name: skill.name, level: skill.level}]">
-                        </app-card>
-                    </div>
-                }
-            </div>
-        </div>
+<section id="competences" class="py-12 bg-gradient-to-r from-blue-50 via-blue-100 to-white bg-gray-50">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-10 text-gray-900">Mes Compétences</h2>
 
-        
-        <!-- Développement Web -->
-        <div class="mb-10">
-            <h3 class="text-xl font-semibold text-center mb-6 text-gray-800">Développement Web & Frameworks</h3>
-            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                @for (skill of programmingSkills; track skill.name) {
-                    <div>
-                        <app-card 
-                            [title]="skill.name"
-                            [content]="skill.description"
-                            [icon]="skill.icon"
-                            [color]="skill.color"
-                            customClass="skill-card"
-                            [showProgressBars]="true"
-                            [skills]="[{name: skill.name, level: skill.level}]">
-                        </app-card>
-                    </div>
-                }
-            </div>
+    <div class="competences-timeline">
+      <!-- Langages de base -->
+      <h3 class="competence-category">💻 Langages de Programmation</h3>
+      <ng-container *ngFor="let skill of basicLanguages; let i = index">
+        <div class="competence-milestone animate-on-scroll" [attr.data-index]="i">
+          <div class="competence-card-container">
+            <app-card 
+              [title]="skill.name"
+              [content]="skill.description"
+              [icon]="skill.icon"
+              [color]="skill.color"
+              customClass="skill-card"
+              [showProgressBars]="true"
+              [skills]="[{name: skill.name, level: skill.level}]">
+            </app-card>
+          </div>
+          <div class="competence-icon">
+            <i class="fas fa-code"></i>
+          </div>
         </div>
-        
-        <!-- Intelligence Artificielle -->
-        <div class="mb-4">
-            <h3 class="text-xl font-semibold text-center mb-6 text-gray-800">Intelligence Artificielle</h3>
-            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                @for (skill of aiSkills; track skill.name) {
-                    <div>
-                        <app-card 
-                            [title]="skill.name"
-                            [content]="skill.description"
-                            [icon]="skill.icon"
-                            [color]="skill.color"
-                            customClass="skill-card"
-                            [showProgressBars]="true"
-                            [skills]="[{name: skill.name, level: skill.level}]">
-                        </app-card>
-                    </div>
-                }
-            </div>
+      </ng-container>
+
+      <!-- Développement Web -->
+      <h3 class="competence-category">🌐 Développement Web & Mobile</h3>
+      <ng-container *ngFor="let skill of programmingSkills; let i = index">
+        <div class="competence-milestone animate-on-scroll" [attr.data-index]="i">
+          <div class="competence-card-container">
+            <app-card 
+              [title]="skill.name"
+              [content]="skill.description"
+              [icon]="skill.icon"
+              [color]="skill.color"
+              customClass="skill-card"
+              [showProgressBars]="true"
+              [skills]="[{name: skill.name, level: skill.level}]">
+            </app-card>
+          </div>
+          <div class="competence-icon">
+            <i class="fas fa-laptop-code"></i>
+          </div>
         </div>
+      </ng-container>
+
+      <!-- Intelligence Artificielle -->
+      <h3 class="competence-category">🧠 Intelligence Artificielle</h3>
+      <ng-container *ngFor="let skill of aiSkills; let i = index">
+        <div class="competence-milestone animate-on-scroll" [attr.data-index]="i">
+          <div class="competence-card-container">
+            <app-card 
+              [title]="skill.name"
+              [content]="skill.description"
+              [icon]="skill.icon"
+              [color]="skill.color"
+              customClass="skill-card"
+              [showProgressBars]="true"
+              [skills]="[{name: skill.name, level: skill.level}]">
+            </app-card>
+          </div>
+          <div class="competence-icon">
+            <i class="fas fa-brain"></i>
+          </div>
+        </div>
+      </ng-container>
     </div>
+  </div>
 </section>
