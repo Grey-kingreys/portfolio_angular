@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './apropos.css',
 })
 export class Apropos implements OnInit {
-  urlImg: string = 'images/moi.jpg';
+  urlImg: string = 'images/Ma photo.jpg';
   altImg: string = 'Ma photo';
 
   constructor() {}

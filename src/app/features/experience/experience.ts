@@ -13,26 +13,26 @@ export class Experience implements AfterViewInit {
   experiences = [
     {
       title: 'Développeur Full Stack',
-      subtitle: 'Tech Solutions SARL',
-      date: '2023 - Présent',
-      content: 'Développement d\'applications web modernes avec Angular et Node.js. Gestion de projets complets de la conception à la mise en production.',
-      technologies: ['Angular', 'Node.js', 'MongoDB', 'Docker'],
+      subtitle: 'brainSense Technologies',
+      date: '2025 - Présent',
+      content: 'Développement d\'applications web modernes avec Nestjs et React ainsi que des application mobile avec flutter. Gestion de projets complets de la conception à la mise en production.',
+      technologies: ['Nestjs', 'React', 'Flutter', 'Docker'],
       image: 'https://via.placeholder.com/400x200/0d6efd/ffffff?text=Tech+Solutions'
     },
     {
-      title: 'Développeur Frontend',
-      subtitle: 'Digital Agency',
+      title: 'Responsable Adjoint de la communication',
+      subtitle: 'AfriAi Solutions',
       date: '2022 - 2023',
-      content: 'Création d\'interfaces utilisateur responsives et interactives. Optimisation des performances et amélioration de l\'expérience utilisateur.',
-      technologies: ['React', 'TypeScript', 'Sass', 'Bootstrap'],
+      content: 'Gestion de la communication interne et externe de l\'entreprise. Coordination des équipes de communication.',
+      technologies: ['Communication', 'Coordination', 'Gestion de projet'],
       image: 'https://via.placeholder.com/400x200/198754/ffffff?text=Digital+Agency'
     },
     {
-      title: 'Stagiaire Développeur',
-      subtitle: 'StartUp Innovation',
+      title: 'Adjoint Responsable technique AI',
+      subtitle: 'AfriAi Solutions',
       date: '2021 - 2022',
-      content: 'Participation au développement d\'une plateforme SaaS. Apprentissage des bonnes pratiques de développement agile.',
-      technologies: ['Vue.js', 'Python', 'PostgreSQL', 'Git'],
+      content: 'Support technique et développement d\'applications IA. Formation des équipes sur les nouvelles technologies.',
+      technologies: ['IA', 'Machine Learning', 'Python', 'Git'],
       image: 'https://via.placeholder.com/400x200/ffc107/000000?text=StartUp'
     }
   ];
