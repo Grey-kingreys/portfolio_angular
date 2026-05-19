@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, HostListener } from '@angular/core';
+import { Component, AfterViewInit, HostListener, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Card } from '../../shared/card/card';
 
@@ -8,6 +8,7 @@ import { Card } from '../../shared/card/card';
   imports: [CommonModule, Card],
   templateUrl: './competences.html',
   styleUrls: ['./competences.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Competences implements AfterViewInit {
   basicLanguages = [
@@ -155,6 +156,7 @@ export class Competences implements AfterViewInit {
   }
 
   checkScroll() {
+    if (typeof document === 'undefined') return;
     const elements = document.querySelectorAll('.animate-on-scroll');
     elements.forEach(element => {
       const position = element.getBoundingClientRect();
@@ -162,5 +164,9 @@ export class Competences implements AfterViewInit {
         element.classList.add('visible');
       }
     });
+  }
+
+  trackBySkillName(index: number, item: any) {
+    return item.name;
   }
 }

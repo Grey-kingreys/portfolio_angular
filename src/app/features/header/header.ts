@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Button } from '../../shared/button/button';
 
@@ -7,7 +7,8 @@ import { Button } from '../../shared/button/button';
   standalone: true,
   imports: [CommonModule, Button],
   templateUrl: './header.html',
-  styleUrls: ['./header.css']
+  styleUrls: ['./header.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Header implements OnInit {
   constructor() {}

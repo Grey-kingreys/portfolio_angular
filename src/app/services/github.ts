@@ -1,7 +1,7 @@
 // github.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, shareReplay, catchError, throwError, forkJoin } from 'rxjs';
+import { Observable, shareReplay, catchError, throwError, forkJoin, retry } from 'rxjs';
 
 export interface GitHubRepo {
   id: number;
@@ -52,6 +52,7 @@ export class GithubService {
         `${this.apiUrl}/users/${username}`,
         { headers: this.getHeaders() }
       ).pipe(
+        retry(2),
         shareReplay(1),
         catchError(error => throwError(() => 'Erreur lors du chargement des données utilisateur'))
       );
@@ -69,6 +70,7 @@ export class GithubService {
         `${this.apiUrl}/users/${username}/repos?type=public&sort=updated&per_page=100`,
         { headers: this.getHeaders() }
       ).pipe(
+        retry(2),
         shareReplay(1),
         catchError(error => throwError(() => 'Erreur lors du chargement des dépôts'))
       );

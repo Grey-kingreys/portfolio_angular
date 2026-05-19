@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   templateUrl: './apropos.html',
   styleUrl: './apropos.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Apropos implements OnInit {
   urlImg: string = 'images/Ma photo.jpg';

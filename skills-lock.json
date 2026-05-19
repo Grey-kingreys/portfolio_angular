@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "angular-best-practices": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "skillPath": "skills/angular-best-practices/SKILL.md",
+      "computedHash": "2c3a8edfb28ca5d8c9235f4a276c5f741c1ca67acbdaa20e63a00d3089ff1f4e"
+    }
+  }
+}

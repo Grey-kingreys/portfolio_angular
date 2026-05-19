@@ -1,4 +1,4 @@
-import { Component, input, Input } from '@angular/core';
+import { Component, input, Input, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   templateUrl: './card.html',
   styleUrl: './card.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Card {
   @Input() title: string = '';

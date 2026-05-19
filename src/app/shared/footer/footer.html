@@ -15,7 +15,7 @@
       <div class="w-full md:w-1/2">
         <div class="social-links-container gap-3">
 
-          <a *ngFor="let social of socialLinks"
+          <a *ngFor="let social of socialLinks; trackBy: trackBySocialName"
              [href]="social.url"
              target="_blank"
              rel="noopener noreferrer"

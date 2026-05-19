@@ -1,10 +1,4 @@
 import { Routes } from '@angular/router';
-import { Apropos } from './features/apropos/apropos';
-import { Competences } from './features/competences/competences';
-import { Experience } from './features/experience/experience';
-import { Projets } from './features/projets/projets';
-import { Contact } from './features/contact/contact';
-import { TableauDeBord } from './features/tableau-de-bord/tableau-de-bord';
 import { Header } from './features/header/header';
 
 export const routes: Routes = [
@@ -19,26 +13,26 @@ export const routes: Routes = [
     },
     {
         path: 'Apropos',
-        component: Apropos
+        loadComponent: () => import('./features/apropos/apropos').then(m => m.Apropos)
     },
     {
         path: 'Competences',
-        component: Competences
+        loadComponent: () => import('./features/competences/competences').then(m => m.Competences)
     },
     {
         path: 'Experience',
-        component: Experience
+        loadComponent: () => import('./features/experience/experience').then(m => m.Experience)
     },
     {
         path: 'Projets',
-        component: Projets
+        loadComponent: () => import('./features/projets/projets').then(m => m.Projets)
     },
     {
         path: 'Contact',
-        component: Contact
+        loadComponent: () => import('./features/contact/contact').then(m => m.Contact)
     },
     {
         path: 'TableauDeBord',
-        component: TableauDeBord
+        loadComponent: () => import('./features/tableau-de-bord/tableau-de-bord').then(m => m.TableauDeBord)
     }
 ];

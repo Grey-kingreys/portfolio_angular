@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -6,7 +6,8 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './footer.html',
-  styleUrl: './footer.css',
+  styleUrls: ['./footer.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Footer {
   currentYear = new Date().getFullYear();
@@ -28,4 +29,8 @@ export class Footer {
       url: 'https://x.com/Greyykzkingreys?t=L7w-roHOz-c3y_E-8e3RPQ&s=09'
     }
   ];
+
+  trackBySocialName(index: number, item: any) {
+    return item.name;
+  }
 }

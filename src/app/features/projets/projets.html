@@ -5,7 +5,7 @@
     <div class="projets-timeline">
       <h3 class="projets-category">🤖 Intelligence Artificielle</h3>
       
-      <ng-container *ngFor="let project of aiProjects; let i = index">
+      <ng-container *ngFor="let project of aiProjects; let i = index; trackBy: trackByProjectTitle">
         <div class="projet-milestone animate-on-scroll" [attr.data-index]="i">
           <div class="projet-card-container">
             <app-card 
@@ -16,8 +16,8 @@
               [technologies]="project.technologies"
               [linkProjet]="project.linkProjet"
               [linkTextProjet]="project.linkTextProjet"
-              [linkCode]="project.linKCode"
-              [linkTextCode]="project.linkTextCodes"
+              [linkCode]="project.linkCode"
+              [linkTextCode]="project.linkTextCode"
               customClass="project-card">
             </app-card>
           </div>
@@ -29,7 +29,7 @@
       
       <h3 class="projets-category">🌐 Développement Web</h3>
       
-      <ng-container *ngFor="let project of webProjects; let i = index">
+      <ng-container *ngFor="let project of webProjects; let i = index; trackBy: trackByProjectTitle">
         <div class="projet-milestone animate-on-scroll" [attr.data-index]="i">
           <div class="projet-card-container">
             <app-card 
@@ -40,8 +40,8 @@
               [technologies]="project.technologies"
               [linkProjet]="project.linkProjet"
               [linkTextProjet]="project.linkTextProjet"
-              [linkCode]="project.linKCode"
-              [linkTextCode]="project.linkTextCodes"
+              [linkCode]="project.linkCode"
+              [linkTextCode]="project.linkTextCode"
               customClass="project-card">
             </app-card>
           </div>

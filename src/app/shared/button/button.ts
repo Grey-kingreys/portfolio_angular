@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
@@ -10,6 +10,7 @@ type ButtonTheme = 'primary' | 'secondary' | 'light';
   imports: [CommonModule, RouterModule],
   templateUrl: './button.html',
   styleUrls: ['./button.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Button {
   @Input() href?: string;

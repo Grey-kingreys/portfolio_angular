@@ -52,7 +52,11 @@
     @if (title) {
       <h3 class="card-title">
         @if (icon) {
-          <span class="title-icon">{{ icon }}</span>
+          @if (icon.startsWith('fa')) {
+            <i [class]="icon" class="title-icon"></i>
+          } @else {
+            <span class="title-icon">{{ icon }}</span>
+          }
         }
         {{ title }}
       </h3>

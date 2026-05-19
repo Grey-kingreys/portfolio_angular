@@ -54,7 +54,7 @@
           <div class="social-section mt-6">
             <h3 class="info-title mb-3">Réseaux sociaux</h3>
             <div class="social-links flex flex-wrap gap-3">
-              <a *ngFor="let social of socialLinks" 
+              <a *ngFor="let social of socialLinks; trackBy: trackBySocialName" 
                  [href]="social.url" 
                  target="_blank" 
                  rel="noopener noreferrer"
@@ -85,7 +85,7 @@
         <div class="contact-form-card bg-gray-50 rounded-2xl p-6 md:p-8 shadow-sm">
           
           <!-- Messages de succès/erreur -->
-          <div *ngIf="submitSuccess" class="mb-4 rounded-lg border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-800 flex items-start gap-2" role="alert">
+          <div *ngIf="submitSuccess()" class="mb-4 rounded-lg border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-800 flex items-start gap-2" role="alert">
             <!-- Check circle icon -->
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="mt-0.5 h-4 w-4" fill="none" stroke="#16a34a" stroke-width="1.8">
               <path stroke-linecap="round" stroke-linejoin="round" d="M9.5 12.75 11.5 14.75 15 9.75" />
@@ -95,7 +95,7 @@
             Votre message a été envoyé avec succès ! Je vous répondrai bientôt.
           </div>
 
-          <div *ngIf="submitError" class="mb-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800 flex items-start gap-2" role="alert">
+          <div *ngIf="submitError()" class="mb-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800 flex items-start gap-2" role="alert">
             <!-- Exclamation icon -->
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="mt-0.5 h-4 w-4" fill="none" stroke="#dc2626" stroke-width="1.8">
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.25v6.5" />
@@ -161,15 +161,15 @@
             <button 
               type="submit" 
               class="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 disabled:opacity-60 disabled:cursor-not-allowed submit-btn"
-              [disabled]="isSubmitting">
-              <span *ngIf="!isSubmitting">
+              [disabled]="isSubmitting()">
+              <span *ngIf="!isSubmitting()">
                 <!-- Paper plane / send icon -->
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="#ffffff" stroke-width="1.8">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M4.75 4.75 19.25 12 4.75 19.25 7 12z" />
                 </svg>
                 <span>Envoyer le message</span>
               </span>
-              <span *ngIf="isSubmitting">
+              <span *ngIf="isSubmitting()">
                 <span class="inline-block h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" role="status" aria-hidden="true"></span>
                 <span>Envoi en cours...</span>
               </span>

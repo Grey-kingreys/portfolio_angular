@@ -5,7 +5,7 @@
     <div class="competences-timeline">
       <!-- Langages de base -->
       <h3 class="competence-category">💻 Langages de Programmation</h3>
-      <ng-container *ngFor="let skill of basicLanguages; let i = index">
+      <ng-container *ngFor="let skill of basicLanguages; let i = index; trackBy: trackBySkillName">
         <div class="competence-milestone animate-on-scroll" [attr.data-index]="i">
           <div class="competence-card-container">
             <app-card 
@@ -26,7 +26,7 @@
 
       <!-- Développement Web -->
       <h3 class="competence-category">🌐 Développement Web & Mobile</h3>
-      <ng-container *ngFor="let skill of programmingSkills; let i = index">
+      <ng-container *ngFor="let skill of programmingSkills; let i = index; trackBy: trackBySkillName">
         <div class="competence-milestone animate-on-scroll" [attr.data-index]="i">
           <div class="competence-card-container">
             <app-card 
@@ -47,7 +47,7 @@
 
       <!-- Intelligence Artificielle -->
       <h3 class="competence-category">🧠 Intelligence Artificielle</h3>
-      <ng-container *ngFor="let skill of aiSkills; let i = index">
+      <ng-container *ngFor="let skill of aiSkills; let i = index; trackBy: trackBySkillName">
         <div class="competence-milestone animate-on-scroll" [attr.data-index]="i">
           <div class="competence-card-container">
             <app-card 
